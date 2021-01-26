@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,body {
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 5rem;
+  background: linear-gradient(#f9813a,#9b610b);
+}
+
+.navigation {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.linksForm {
+  color:#1a1c20;
+  margin: 2rem;
+}
+
+.linksAbout {
+  color:#1a1c20;
+}
+
+.content {
+  height: 30.5rem;
+  flex: 1 0 auto;
+}
+
+footer {
+  height: 4rem;
+  flex: 0 0 auto;
+  background-color: #1a1c20;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  justify-content: space-around;
+    display: flex;
+}
+
+.linkSocialApp {
+  color:#fcf1f1;
+}
+
+#marker {
+  font-size:12px;
+  color:white;
+}

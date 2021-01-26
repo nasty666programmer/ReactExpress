@@ -1,0 +1,34 @@
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container {
+    border: 1px solid black;
+    
+    border-radius: 7px;
+    width: 25rem;
+    height: 15rem;
+    margin-left: 35%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.fig {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.logoInFooter {
+    width: 15rem;
+    height: 15rem;
+    text-align: center; 
+}
+
+.txt_about {
+    color:black;
+    font-size: 2rem;
+    
+}
