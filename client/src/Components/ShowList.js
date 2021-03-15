@@ -44,7 +44,6 @@ function ShowList() {
     <BottomNavigation value={value}  onChange={(event, newValue) => {setValue(newValue)}} showLabels className={classes.root,classes.footer} >
       <BottomNavigationAction  to='/showChecking' component={Link} label="Список Блоков" icon={<RestoreIcon />} />
       <BottomNavigationAction to='/favoriteTeam' component={Link} label="sos3" icon={<FavoriteIcon />} />
-      <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
     </BottomNavigation>
         </div>
         </Router>

@@ -6,6 +6,8 @@ import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import AccessibilityNewIcon from '@material-ui/icons/AccessibilityNew';
+import MailIcon from '@material-ui/icons/Mail';
+import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -38,7 +40,7 @@ function FavoriteTeam() {
                 <legend><img className={classes.imageLogo} src={logo} alt={'sos3'}/> </legend>
                 <TelegramIcon />
                     <br />
-                <a className={classes.links} href='https://t.me/obshhaga3_chat'><ApartmentIcon /><span>Чат Общежития №3</span></a> 
+                <a className={classes.links} href='https://t.me/sos3_znu'><ApartmentIcon /><span>канал #sos3 </span></a> 
                 <a className={classes.links} href='https://telegra.ph/Poleznye-znakomstva-v-3-obshchezhitii-ZNU-02-16'><SupervisorAccountIcon /><span>Полезные знакомства</span></a>
                 <a className={classes.links} href='https://t.me/sos3_chat'><AccessibilityNewIcon /><span>Чат sos3</span></a>
                     <br />
@@ -46,7 +48,14 @@ function FavoriteTeam() {
                 <InstagramIcon />
                     <br />
                 <a className={classes.links} href='https://instagram.com/sos3_znu?igshid=1osx7crjpg12v'><AccessibilityNewIcon /><span>Профиль sos3</span></a>
-                
+                    <br />
+                    <br />
+                <RecordVoiceOverIcon/>
+                    <br />
+                    <span>По всем вопросам и предложениям обращаться по этим адрессам</span>
+                    <br />
+                    <br />
+                    <MailIcon /><span>@sos_3_bot</span>
             </fieldset>
         </div>
     )

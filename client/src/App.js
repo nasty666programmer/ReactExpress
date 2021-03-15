@@ -1,34 +1,48 @@
-import About from './Components/About';
 import FormCheck from './Components/FormCheck';
 import {BrowserRouter as Router,Route,Switch,Link} from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
 
+
+const useStyles = makeStyles({
+  root: {
+    width: 500,
+  },
+  nav:{
+        width:'100%',
+        height:'2rem',   
+        fontSize:'1.5rem',
+        textAlign:'center',    
+  },
+  links: {
+    margin:'1rem',
+    textDecoration:'none'
+  },
+  iconExit: {
+    display:'block',
+    marginLeft:'auto',
+    marginRight:'auto'
+  }
+});
 
 function App(props) {
+  let classes = useStyles();
+
   return (
     <Router>
     <div >
       <header>
-          <nav>
-            <Link to='/formsCheck'><a><span >Форма для заполнения</span></a></Link>
-            <Link to='/about'><a><span >О проекте </span></a></Link>
+          <nav className={classes.nav}>
+            <Link to='/formsCheck'><span  className={classes.links}>Форма для заполнения</span></Link>
           </nav>
-          <img onClick={props.Logout} src="https://img.icons8.com/wired/32/000000/exit.png"/>
+          <img  className={classes.iconExit} onClick={props.Logout} src="https://img.icons8.com/wired/32/000000/exit.png"/>
       </header>
       <div>
       <Switch >
         <Route path='/formsCheck'>
           <FormCheck />
         </Route>
-        <Route path='/about'>
-          <About />
-        </Route>
       </Switch>
       </div>
-      <footer>
-        
-        <span>©ZNU,2021г.</span>
-        <span >Инстаграм</span>
-      </footer>
     </div>
     </Router>
   );

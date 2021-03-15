@@ -11,7 +11,7 @@ function Login() {
         .catch(err => console.log(err))
     },[])
 
-        console.log(adminUser)
+
     const [log,setLog] = useState({
         log:'',
         pass: ''
@@ -25,7 +25,7 @@ function Login() {
                 pass:details.pass
         })
     }
-    }
+  }
 
     const Logout = () => {
         setLog({log:'',pass:''})
