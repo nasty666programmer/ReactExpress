@@ -1,13 +1,17 @@
 import LoginForm from './LoginForm';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import App from '../../../App';
+import axios from 'axios';
 
 function Login() {
-    const adminUser = {
-        log:'admin',
-        pass:'admin'
-    }
+   const [adminUser,setAdminUser] = useState();
 
+    useEffect(() => {
+        axios.get('/login').then(res => setAdminUser({...res.data}))
+        .catch(err => console.log(err))
+    },[])
+
+        console.log(adminUser)
     const [log,setLog] = useState({
         log:'',
         pass: ''

@@ -1,7 +1,6 @@
 import {useForm} from 'react-hook-form';
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import '../css/FormCheck.css';
 import logo from '../imgages/sos3.png';
 
 function FormCheck() {
@@ -32,9 +31,9 @@ function FormCheck() {
         event.preventDefault();
     }
     return (
-        <div className='wrapper'>
+        <div>
             <form onSubmit={handleSubmit} >
-    <input type="date" value={forms.date} onChange={handleChange} name="date" placeholder="Дата" className='dateForm'/>
+    <input type="date" value={forms.date} onChange={handleChange} name="date" placeholder="Дата" />
         <br/>
     <label for="lname">Причина1</label>
     <input type="text" value={forms.cause_1} onChange={handleChange} name="cause_1" placeholder="Причина 1"/>
@@ -43,7 +42,7 @@ function FormCheck() {
     <input type="text" value={forms.cause_2} onChange={handleChange} name="cause_2" placeholder="Причина 2"/>
     <input type='text' value={forms.listBlocks_2} name='listBlocks_2' onChange={handleChange} placeholder='список блоков'/>
 
-    <button type='submit' className='btn_submit'>Send</button>
+    <button type='submit'>Send</button>
             </form>
             <img src={logo} alt='logo' className='logoSos3' />
         </div>

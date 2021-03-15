@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
+app.use('/login',require('./router/login'));
 app.use('/formsCheck',require('./router/formsCheck'));
 
 app.get('/', function(req, res, next) {
