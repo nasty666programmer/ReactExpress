@@ -14,8 +14,9 @@ const useStyles = makeStyles((theme) => ({
       flexGrow:1,
     },
     textField: {
+        minHeight:'30rem',
         width: '80%',
-        height:'30rem',
+        height:'50%',
         marginLeft:' auto',
         marginRight: 'auto',
         textAlign:'center',

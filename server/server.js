@@ -4,6 +4,8 @@ const app = express();
 const config = require('config');
 const bodyParser = require('body-parser');
 
+const db = require('./db');
+const formCheck = db.formsCheck;
 
 const PORT = config.get('port') || 5000;
 console.log("port" + PORT);
@@ -13,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 // parse application/json
 app.use(bodyParser.json())
+
+
 
 app.use('/login',require('./router/login'));
 app.use('/formsCheck',require('./router/formsCheck'));

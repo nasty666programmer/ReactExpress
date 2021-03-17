@@ -1,11 +1,22 @@
 const {Router} = require('express');
 const router = Router();
+const db = require('../db');
+const formCheck = db.formsCheck;
 
 
 router.post('/',(req,res) => {
-    const {id,cause_1,cause_2,date,listBlock_1,listBlocks_2} = req.body
-    res.send('forms')
-    console.log(`${date} ${cause_1} ${listBlock_1} `)
+    const {id,date,images} = req.body
+       formCheck.create({
+           date:date,
+           img:images
+       }).then(result => {
+           console.log(result)
+            res.end('ok');
+        }).catch(err => {
+            console.log(err);
+            res.end('error')
+        })
+  
 })
 
 module.exports = router;

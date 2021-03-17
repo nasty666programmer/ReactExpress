@@ -14,8 +14,9 @@ const useStyles = makeStyles({
     width: 500,
   },
   footer:{
+    minHeight:'2rem',
         width:'100%',
-        height:'2rem',
+        height:'1%',
         position: 'fixed',
         left: '0',
         bottom:2,
