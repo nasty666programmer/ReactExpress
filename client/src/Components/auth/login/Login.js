@@ -22,7 +22,7 @@ function Login() {
 
     return (
         <div>
-            {log.log != '' ? <App Logout={Logout}/> : <LoginForm Login={Login}/>}
+            {localStorage.getItem("hash") ? <App Logout={Logout}/> : <LoginForm Login={Login}/>}
         </div>
     )
 }

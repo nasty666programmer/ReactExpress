@@ -5,7 +5,7 @@ import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
-import {BrowserRouter as Router,Link,Route,Switch,IndexRedirect} from 'react-router-dom';
+import {BrowserRouter as Router,Link,Route,Switch} from 'react-router-dom';
 import FavoriteTeam from './FavoriteTeam';
 import ShowChecking from './ShowChecking';
 
@@ -34,7 +34,7 @@ function ShowList() {
         <div> 
      
         <Switch>
-        <IndexRedirect to="/showChecking"/>
+       
             <Route exact path='/showChecking' >
                 <ShowChecking />
             </Route>
