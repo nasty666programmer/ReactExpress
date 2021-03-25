@@ -1,9 +1,8 @@
 import {useEffect, useState} from 'react';
 import axios from 'axios';
-import logo from '../imgages/sos3.png';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import {Container,Toolbar,AppBar,Typography,Box,Dialog, DialogContent, DialogContentText,DialogActions,DialogTitle,TextField} from '@material-ui/core';
+import {TextField} from '@material-ui/core';
 import IconButton from '@material-ui/core/IconButton';
 import PhotoCamera from '@material-ui/icons/PhotoCamera';
 
@@ -40,12 +39,12 @@ function FormCheck() {
         images:''
     })
    const handleChange = (event) => {
-       const {value} = event.currentTarget;
-    setDate(value);
+        const {value} = event.currentTarget;
+        setDate(value);
    }
 
-   const handleChangeFile = (event) => {
-   /* let file = event.target.files[0];
+   /*const handleChangeFile = (event) => {
+   let file = event.target.files[0];
     console.log(file)
         let data = new FormData();
         data.append('image',file);
@@ -62,8 +61,8 @@ function FormCheck() {
        reader.onload = function() {
            
            setForms({...forms, images:reader.result})
-       };*/
-   }
+       };
+   }*/
 
     const handleSubmit = () => {
 
@@ -72,7 +71,7 @@ function FormCheck() {
         data.append('file',file);
        
 
-        axios.post('/formsCheck',data)
+        axios.post('/form-check',data)
         .then(res => console.log(res))
         .catch(err => {
             console.log(err)

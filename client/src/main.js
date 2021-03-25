@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import Login from "./Components/auth/login/Login";
-import {BrowserRouter as Router,Link,Route,Switch} from 'react-router-dom';
+import {BrowserRouter as Router,Link,Route,Switch,Redirect} from 'react-router-dom';
 import ShowList from "./Components/ShowList";
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -13,18 +13,28 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
+import UserGuid from './UserGuid';
+import MenuIcon from '@material-ui/icons/Menu';
 
 const useStyles = makeStyles({
   list: {
     width: 250,
+    height:200
   },
   fullList: {
     width: 'auto',
   },
   root: {
-    marginLeft: '50%',
     color: '#eaa70a',
     fontSize: 'large'
+  },
+  menu: {
+    backgroundColor:'#ececec',
+    fontSize:'3rem',
+    height:'auto'
+  },
+  links: {
+    fontSize:'3rem'
   }
 });
 
@@ -51,18 +61,18 @@ const useStyles = makeStyles({
           onClick={toggleDrawer(anchor, false)}
           onKeyDown={toggleDrawer(anchor, false)}
         >
-          <List>
+          <List className={classes.menu}>
             {['Login'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText><Link to='/login'><span>Login</span></Link></ListItemText>
+                <ListItemText><Link style={{textDecoration:'none'}} to='/login'><span>Вход в кабинет</span></Link></ListItemText>
                 
               </ListItem>
             ))}
              {['Показать список блоков'].map((text, index) => (
               <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <Link to='/showList'><ListItemText>Показать список блоков</ListItemText></Link>
+                <Link to='/show-list' style={{textDecoration:'none'}}><ListItemText className={classes.links}>Показать список блоков</ListItemText></Link>
                 
               </ListItem>
             ))}
@@ -71,32 +81,32 @@ const useStyles = makeStyles({
         </div>
       );
 
+    return (
+        <Router>
+          <div>
+          {['menu'].map((anchor) => (
+          <React.Fragment key={anchor}>
+            <Button  className={classes.root} onClick={toggleDrawer(anchor, true)}><MenuIcon />{anchor}</Button>
+            <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        ))}
 
-     return (
-         <Router>
-         <div>
-         {['menu'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button  className={classes.root} onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-
-        
-             
-
-             <Switch>
-                 <Route path='/login'>
+            <Redirect to='/guid' />
+            <Switch>
+                <Route path='/login'>
                     <Login />
-                 </Route>
-                 <Route path='/showList'>
+                </Route>
+                <Route path='/show-list'>
                     <ShowList />
-                 </Route>
-             </Switch>
-         </div>
-         </Router>
+                </Route>
+                <Route path='/guid'>
+                    <UserGuid />
+                </Route>
+            </Switch>
+          </div>
+        </Router>
      )
  }
 

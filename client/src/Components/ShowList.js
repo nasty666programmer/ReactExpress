@@ -4,10 +4,10 @@ import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import RestoreIcon from '@material-ui/icons/Restore';
 import FavoriteIcon from '@material-ui/icons/Favorite';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import {BrowserRouter as Router,Link,Route,Switch} from 'react-router-dom';
+import {BrowserRouter as Router,Link,Route,Switch,Redirect} from 'react-router-dom';
 import FavoriteTeam from './FavoriteTeam';
 import ShowChecking from './ShowChecking';
+import About from './About';
 
 const useStyles = makeStyles({
   root: {
@@ -19,8 +19,7 @@ const useStyles = makeStyles({
         height:'1%',
         position: 'fixed',
         left: '0',
-        bottom:2,
-        
+        bottom:2, 
   }
 });
 
@@ -30,24 +29,26 @@ function ShowList() {
   const [value, setValue] = React.useState(0);
 
     return (
-        <Router>
-        <div> 
-     
-        <Switch>
-       
-            <Route exact path='/showChecking' >
-                <ShowChecking />
-            </Route>
-            <Route path='/favoriteTeam'>
-                <FavoriteTeam />
-            </Route>
-        </Switch>
+          <Router>
+            <div> 
+              <Redirect to='/about' />
+              <Switch>
+                  <Route path='/show-checking' >
+                      <ShowChecking />
+                  </Route>
+                  <Route path='/about' >
+                      <About />
+                  </Route>
+                  <Route path='/team-sos3'>
+                      <FavoriteTeam />
+                  </Route>
+              </Switch>
 
-    <BottomNavigation value={value}  onChange={(event, newValue) => {setValue(newValue)}} showLabels className={classes.root,classes.footer} >
-      <BottomNavigationAction  to='/showChecking' component={Link} label="Список Блоков" icon={<RestoreIcon />} />
-      <BottomNavigationAction to='/favoriteTeam' component={Link} label="sos3" icon={<FavoriteIcon />} />
-    </BottomNavigation>
-        </div>
+            <BottomNavigation value={value}  onChange={(event, newValue) => {setValue(newValue)}} showLabels className={classes.root,classes.footer} >
+            <BottomNavigationAction  to='/show-checking' component={Link} label="Список Посещений" icon={<RestoreIcon />} />
+            <BottomNavigationAction to='/team-sos3' component={Link} label="sos3" icon={<FavoriteIcon />} />
+            </BottomNavigation>
+          </div>
         </Router>
     )
 }

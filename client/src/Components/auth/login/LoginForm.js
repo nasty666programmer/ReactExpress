@@ -28,7 +28,7 @@ function LoginForm({Login}) {
         pass: ''
     });
 
-    const classes = useStyles()
+    const classes = useStyles();
 
     const handleChange = (e) => {
         const {name,value} = e.currentTarget;
@@ -45,9 +45,7 @@ function LoginForm({Login}) {
                 Login(response.data)
             })
             .catch(error => console.log(error))
-        
-
-        setDetails({...details,log:'',pass:''})
+        setDetails({...details,log:'',pass:''});
     }
     
 

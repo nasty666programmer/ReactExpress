@@ -1,5 +1,5 @@
 import React from 'react';
-import logo from '../imgages/sos3.png';
+import logo from '../images/sos3logo.png';
 import {makeStyles} from '@material-ui/core/styles'
 import ApartmentIcon from '@material-ui/icons/Apartment';
 import SupervisorAccountIcon from '@material-ui/icons/SupervisorAccount';

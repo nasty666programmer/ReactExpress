@@ -1,7 +1,6 @@
 import LoginForm from './LoginForm';
 import {useEffect, useState} from 'react';
 import App from '../../../App';
-import axios from 'axios';
 
 function Login() {
    const [adminUser,setAdminUser] = useState();
@@ -17,7 +16,7 @@ function Login() {
   }
   console.log(log.log)
     const Logout = () => {
-        setLog({log:''})
+        setLog({log:''});
     }
 
     return (

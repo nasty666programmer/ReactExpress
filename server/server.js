@@ -19,21 +19,12 @@ app.use(express.json({limit: '500kb'})); // for parsing application/json
 // parse application/json
 
 app.use('/login',require('./router/login'));
-app.use('/formsCheck',require('./router/formsCheck'));
-app.use('/showFormCheck',require('./router/ShowFormCheck'));
-
+app.use('/form-check',require('./router/formsCheck'));
+app.use('/show-form-check',require('./router/ShowFormCheck'));
 
 
 app.get('/', function(req, res, next) {
    res.send('index')
   });
 
-  /*(async () => {
-      console.log('Starting a server...');
-  
-      await db.sequelize.sync({ logging: () => { },  });
-  
-      
-
-  })();*/
   app.listen(PORT);
