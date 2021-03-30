@@ -1,6 +1,7 @@
 import React,{useState} from 'react';
 import Login from "./Components/auth/login/Login";
 import {BrowserRouter as Router,Link,Route,Switch,Redirect} from 'react-router-dom';
+import {browserHistory} from 'react-router';
 import ShowList from "./Components/ShowList";
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
@@ -15,6 +16,8 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import UserGuid from './UserGuid';
 import MenuIcon from '@material-ui/icons/Menu';
+import TodayIcon from '@material-ui/icons/Today';
+import './fonts/fonts.css';
 
 const useStyles = makeStyles({
   list: {
@@ -71,8 +74,8 @@ const useStyles = makeStyles({
             ))}
              {['Показать список блоков'].map((text, index) => (
               <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <Link to='/show-list' style={{textDecoration:'none'}}><ListItemText className={classes.links}>Показать список блоков</ListItemText></Link>
+                <ListItemIcon>{index % 2 === 0 ? <TodayIcon /> : <TodayIcon />}</ListItemIcon>
+                <Link to='/show-list' style={{textDecoration:'none'}}><ListItemText className={classes.links}>Список проверок</ListItemText></Link>
                 
               </ListItem>
             ))}
@@ -82,8 +85,8 @@ const useStyles = makeStyles({
       );
 
     return (
-        <Router>
-          <div>
+        <Router history={browserHistory}>
+          <div className={'fonts'}>
           {['menu'].map((anchor) => (
           <React.Fragment key={anchor}>
             <Button  className={classes.root} onClick={toggleDrawer(anchor, true)}><MenuIcon />{anchor}</Button>

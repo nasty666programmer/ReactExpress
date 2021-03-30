@@ -16,10 +16,10 @@ const useStyles = makeStyles({
   footer:{
     minHeight:'2rem',
         width:'100%',
-        height:'1%',
+        height:'6%',
         position: 'fixed',
         left: '0',
-        bottom:2, 
+        bottom:0, 
   }
 });
 
@@ -29,11 +29,11 @@ function ShowList() {
   const [value, setValue] = React.useState(0);
 
     return (
-          <Router>
+      <Router>
             <div> 
-              <Redirect to='/about' />
+              <Redirect to='/show-checking' />
               <Switch>
-                  <Route path='/show-checking' >
+                  <Route exact path='/show-checking' >
                       <ShowChecking />
                   </Route>
                   <Route path='/about' >
@@ -45,11 +45,11 @@ function ShowList() {
               </Switch>
 
             <BottomNavigation value={value}  onChange={(event, newValue) => {setValue(newValue)}} showLabels className={classes.root,classes.footer} >
-            <BottomNavigationAction  to='/show-checking' component={Link} label="Список Посещений" icon={<RestoreIcon />} />
-            <BottomNavigationAction to='/team-sos3' component={Link} label="sos3" icon={<FavoriteIcon />} />
+            <BottomNavigationAction  to='/show-checking' component={Link} label="Список проверок" icon={<RestoreIcon />} />
+            <BottomNavigationAction to='/team-sos3' component={Link} label="SOS3" icon={<FavoriteIcon />} />
             </BottomNavigation>
           </div>
-        </Router>
+          </Router>
     )
 }
 

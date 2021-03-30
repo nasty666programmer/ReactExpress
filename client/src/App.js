@@ -27,21 +27,23 @@ const useStyles = makeStyles({
 function App(props) {
   let classes = useStyles();
 
-  return (
+  return ( 
     <Router>
     <div >
       <header>
           <nav className={classes.nav}>
-            <Link to='/form-check'><span  className={classes.links}>Форма для заполнения</span></Link>
+            <Link style={{textDecoration:'none'}} to='/form-check'><span  className={classes.links}>Форма для заполнения</span></Link>
           </nav>
           <img  className={classes.iconExit} onClick={props.Logout} src="https://img.icons8.com/wired/32/000000/exit.png"/>
       </header>
       <div>
-        <Switch >
-          <Route path='/form-check'>
-            <FormCheck />
-          </Route>
-        </Switch>
+        
+          <Switch >
+            <Route path='/form-check'>
+              <FormCheck />
+            </Route>
+          </Switch>
+        
       </div>
     </div>
     </Router>

@@ -26,7 +26,7 @@ function ShowImagesFUll(props) {
               <h3 className={"modal-title"}>Картинка</h3>
                 <CloseIcon onClick={props.onClose} />
             </div>
-            <div className={"modal-body"}>    
+            <div className={"modal-body fonts"}>    
             <img src={`data:image/png;base64,${base64String}`} />
             </div>
           </div>

@@ -1,9 +1,4 @@
 
-
-/* стилизация содержимого страницы */
-
-  
-/* свойства модального окна по умолчанию */
 .modale {
     position: fixed; /* фиксированное положение */
     top: 0;
@@ -28,7 +23,7 @@
 /* ширина модального окна и его отступы от экрана */
 .modal-dialog {
     position: relative;
-    width: auto;
+    width: 425px;
     margin: 10px;
 }
 @media (min-width: 576px) {
@@ -55,6 +50,7 @@
     border: 1px solid rgba(0,0,0,.2);
     border-radius: .3rem;
     outline: 0;
+    height:30rem;
 }
 @media (min-width: 768px) {
   .modal-content {
@@ -115,3 +111,17 @@
     padding: 15px;
     overflow: auto;
 }
+
+@font-face {
+    font-family: 'Gotham Pro Bold';
+    src: local("GothamPro-Bold"),
+       url("./fonts/GothamPro-Bold.ttf") format("truetype");  
+    /*url('GothamProNarrow-Bold.ttf') format('truetype');*/
+    font-weight: bold;
+    font-style: normal;
+    }
+
+    .fonts {
+        font-family: 'Gotham Pro Bold';
+        font-weight: bold;
+    }

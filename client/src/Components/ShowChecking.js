@@ -4,11 +4,12 @@ import axios from 'axios';
 import ShowImagesFUll from './ShowImagesFull';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-
+import {BounceLoader} from 'react-spinners';
+import '../fonts/fonts.css';
 
 const useStyles = makeStyles({
     root: {
-      width: 500,
+      textAlign:'center',
     },
     title:{
         textAlign:'center'
@@ -24,6 +25,17 @@ const useStyles = makeStyles({
         display:'inline-block',
         flexWrap:'nowrap',
         margin:'1rem'
+    },
+    loader: {
+        marginLeft:'45%',
+        marginTop:'2rem'
+    },
+    buttonFonts: {
+        fontFamily: 'Gotham Pro Bold',
+        fontWeight: 'bold',
+        backgroundColor: '#a50606',
+        color: 'black',
+        borderRadius:'1rem'
     }
   });
 
@@ -47,17 +59,20 @@ function ShowChecking() {
     }
 
     return (
-        <div>
-            <h1 className={classes.title}>Список Посещений</h1>
+        <div className={`fonts ${classes.root}`}>
+            <h1 className={classes.title}>Список проверки блоков</h1>
             {flag && ReactDOM.createPortal(
                     <ShowImagesFUll imgLink={data} onClose={showFullImg} />
                ,document.getElementById('modal'))}
                 {blockList.map(el => 
                     <div className={classes.container}>
                         <div className={classes.date}>{el.date}</div>
-                        <Button variant='contained' color='primary' onClick={() => showFullImg(el.img)}>Показать График</Button>
+                        <Button variant='contained' className={classes.buttonFonts} color='primary' onClick={() => showFullImg(el.img)}>Показать График</Button>
                     </div>
                 )}  
+                <div className={classes.loader}>
+                    {blockList.length == 0 ? <BounceLoader style={{position:'absolute',marginRight:'30%'}}/> : null}
+                </div>
         </div>
     )
 }

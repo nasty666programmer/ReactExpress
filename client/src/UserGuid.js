@@ -1,6 +1,7 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import LiveHelpIcon from '@material-ui/icons/LiveHelp';
+import './fonts/fonts.css';
 
 const useStyles = makeStyles({
     root: {
@@ -27,7 +28,7 @@ function UserGuid() {
     let classes = useStyles();
 
     return (
-        <div>
+        <div className={'fonts'}>
             <fieldset className={classes.textField}>
                 <legend><span><LiveHelpIcon />FAQ</span></legend>
                 <div className={classes.blockFaq}>
